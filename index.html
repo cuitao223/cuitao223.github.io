@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="保研申请个人博客主页，展示学习记录、科研笔记、项目经历与简历材料。">
+  <title>张三的个人博客 | 保研申请主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-mark">ZS</span>
+      <span>张三的博客</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#posts">文章</a>
+      <a href="#research">科研</a>
+      <a href="#projects">项目</a>
+      <a href="#about">关于</a>
+    </nav>
+    <a class="header-link" href="resume.pdf">简历 PDF</a>
+  </header>
+
+  <main id="top" class="page-shell">
+    <aside class="sidebar">
+      <section class="profile-card">
+        <div class="avatar">张</div>
+        <h1>张三</h1>
+        <p class="role">XX大学 · 计算机科学与技术本科生</p>
+        <p class="bio">记录科研阅读、项目复盘和保研准备。研究兴趣包括机器学习、计算机视觉、多模态学习与可信人工智能。</p>
+        <div class="quick-stats">
+          <span><strong>GPA</strong>3.92/4.00</span>
+          <span><strong>排名</strong>1/128</span>
+          <span><strong>英语</strong>CET-6 580</span>
+        </div>
+        <div class="profile-actions">
+          <a href="mailto:zhangsan@example.com">Email</a>
+          <a href="https://github.com/yourname">GitHub</a>
+          <a href="resume.pdf">Resume</a>
+        </div>
+      </section>
+
+      <section class="side-section">
+        <h2>分类</h2>
+        <a href="#research">科研笔记 <span>6</span></a>
+        <a href="#projects">项目复盘 <span>4</span></a>
+        <a href="#posts">课程总结 <span>5</span></a>
+        <a href="#about">保研材料 <span>3</span></a>
+      </section>
+
+      <section class="side-section">
+        <h2>当前状态</h2>
+        <p>2026 推免申请准备中</p>
+        <p>正在整理科研经历、论文草稿、竞赛材料和英文简历。</p>
+      </section>
+    </aside>
+
+    <section class="content">
+      <section class="blog-hero">
+        <div class="hero-text">
+          <p class="eyebrow">Undergraduate Research Blog</p>
+          <h2>把科研、项目和成长记录成一条清晰的线索。</h2>
+          <p>
+            这里用于展示我的保研申请材料，也会持续沉淀论文阅读、实验记录、项目总结和学习笔记。老师可以快速浏览我的研究兴趣、代表项目和联系方式。
+          </p>
+        </div>
+      </section>
+
+      <section id="posts" class="section-block">
+        <div class="section-title">
+          <p class="eyebrow">Pinned Posts</p>
+          <h2>置顶文章</h2>
+        </div>
+        <article class="featured-post">
+          <div>
+            <p class="post-meta">科研笔记 · 2026-05-01</p>
+            <h3>我的本科科研主线：从视觉模型到多模态医学影像分析</h3>
+            <p>梳理本科阶段参与的两个主要科研项目，包括研究问题、方法改进、实验设计、阶段性结果与后续计划。</p>
+          </div>
+          <a href="#">阅读全文</a>
+        </article>
+      </section>
+
+      <section class="post-list" aria-label="文章列表">
+        <article class="post-card">
+          <p class="post-meta">论文阅读 · 2026-04-18</p>
+          <h3>Cross-Attention 在多模态任务中的作用</h3>
+          <p>总结跨模态注意力的基本思想、常见结构和在医学影像分类中的可能用法。</p>
+          <ul>
+            <li>Multimodal Learning</li>
+            <li>Transformer</li>
+          </ul>
+        </article>
+
+        <article class="post-card">
+          <p class="post-meta">项目复盘 · 2026-03-26</p>
+          <h3>轻量化视觉模型部署实验记录</h3>
+          <p>记录剪枝、量化、ONNX 导出和端侧推理加速过程中的关键问题与解决方式。</p>
+          <ul>
+            <li>PyTorch</li>
+            <li>Edge AI</li>
+          </ul>
+        </article>
+
+        <article class="post-card">
+          <p class="post-meta">保研准备 · 2026-03-12</p>
+          <h3>如何整理一份老师容易阅读的科研简历</h3>
+          <p>从项目描述、贡献表达、成果排序和材料链接几个角度整理自己的申请材料。</p>
+          <ul>
+            <li>Resume</li>
+            <li>Application</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="research" class="section-block">
+        <div class="section-title">
+          <p class="eyebrow">Research</p>
+          <h2>科研经历</h2>
+        </div>
+        <div class="timeline">
+          <article>
+            <time>2025.03 - 至今</time>
+            <h3>基于多模态特征融合的医学影像分类研究</h3>
+            <p>负责数据预处理、模型结构改进与实验评估。通过引入跨模态注意力机制，提升小样本场景下的分类稳定性。</p>
+          </article>
+          <article>
+            <time>2024.07 - 2025.01</time>
+            <h3>轻量化视觉模型在边缘设备上的部署优化</h3>
+            <p>作为国家级大创项目负责人，完成模型剪枝、量化和端侧推理实验，形成可复现实验报告。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section-block">
+        <div class="section-title">
+          <p class="eyebrow">Projects</p>
+          <h2>代表项目</h2>
+        </div>
+        <div class="project-list">
+          <article>
+            <span>Research System</span>
+            <h3>医学影像辅助分析平台</h3>
+            <p>支持图像上传、模型推理、结果可视化和实验记录管理。</p>
+          </article>
+          <article>
+            <span>Competition</span>
+            <h3>数学建模竞赛数据分析方案</h3>
+            <p>负责建模、特征工程和结果解释，形成论文与可复现实验代码。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="section-block about-block">
+        <div class="section-title">
+          <p class="eyebrow">About</p>
+          <h2>关于我</h2>
+        </div>
+        <p>
+          我是XX大学XX学院计算机科学与技术专业本科生，前三年综合成绩排名专业前1%。本科阶段系统学习了数据结构、算法设计、机器学习、深度学习和计算机视觉等课程，并在导师指导下参与科研项目。
+        </p>
+        <div class="honors">
+          <span>国家奖学金</span>
+          <span>数学建模省级一等奖</span>
+          <span>计算机设计大赛国家二等奖</span>
+          <span>校级一等奖学金</span>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 张三</span>
+    <span>Built with GitHub Pages</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
