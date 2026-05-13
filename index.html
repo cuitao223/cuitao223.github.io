@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="保研申请个人博客主页，展示学习记录、科研笔记、项目经历与简历材料。">
-  <title>张三的个人博客 | 保研申请主页</title>
+  <title>水汽的个人博客 | 保研申请主页</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -14,10 +14,11 @@
   <header class="site-header">
     <a class="brand" href="#top">
       <span class="brand-mark">ZS</span>
-      <span>张三的博客</span>
+      <span>水汽的博客</span>
     </a>
     <nav class="nav" aria-label="主导航">
       <a href="#posts">文章</a>
+      <a href="#essays">经验贴</a>
       <a href="#research">科研</a>
       <a href="#projects">项目</a>
       <a href="#about">关于</a>
@@ -28,18 +29,18 @@
   <main id="top" class="page-shell">
     <aside class="sidebar">
       <section class="profile-card">
-        <div class="avatar">张</div>
-        <h1>张三</h1>
-        <p class="role">XX大学 · 计算机科学与技术本科生</p>
+        <div class="avatar">水</div>
+        <h1>水汽</h1>
+        <p class="role">2023级 · 计算机科学与技术本科生</p>
         <p class="bio">记录科研阅读、项目复盘和保研准备。研究兴趣包括机器学习、计算机视觉、多模态学习与可信人工智能。</p>
         <div class="quick-stats">
-          <span><strong>GPA</strong>3.92/4.00</span>
-          <span><strong>排名</strong>1/128</span>
-          <span><strong>英语</strong>CET-6 580</span>
+          <span><strong>GPA</strong>3.80/4.00</span>
+          <span><strong>排名</strong>3/93</span>
+          <span><strong>英语</strong>CET-6 542</span>
         </div>
         <div class="profile-actions">
           <a href="mailto:zhangsan@example.com">Email</a>
-          <a href="https://github.com/yourname">GitHub</a>
+          <a href="https://github.com/cuitao">GitHub</a>
           <a href="resume.pdf">Resume</a>
         </div>
       </section>
@@ -47,6 +48,7 @@
       <section class="side-section">
         <h2>分类</h2>
         <a href="#research">科研笔记 <span>6</span></a>
+        <a href="#essays">经验随笔 <span>6</span></a>
         <a href="#projects">项目复盘 <span>4</span></a>
         <a href="#posts">课程总结 <span>5</span></a>
         <a href="#about">保研材料 <span>3</span></a>
@@ -55,7 +57,7 @@
       <section class="side-section">
         <h2>当前状态</h2>
         <p>2026 推免申请准备中</p>
-        <p>正在整理科研经历、论文草稿、竞赛材料和英文简历。</p>
+        <p>正在整理科研经历、论文、竞赛材料和简历。</p>
       </section>
     </aside>
 
@@ -117,6 +119,111 @@
         </article>
       </section>
 
+      <section id="essays" class="section-block">
+        <div class="section-title">
+          <p class="eyebrow">Essays & Algorithm Notes</p>
+          <h2>经验贴与算法题解</h2>
+          <p class="section-note">
+          
+          </p>
+        </div>
+        <div class="essay-list">
+          <article class="essay-card">
+            <div class="essay-head">
+              <p class="post-meta">2026-04-13 · 动态规划</p>
+              <span>01</span>
+            </div>
+            <h3><a href="posts/knapsack.html">背包问题：从 0-1 背包到完全背包</a></h3>
+            <p>
+              0-1 背包的核心状态是 <code>dp[j]</code> 表示容量为 <code>j</code> 时的最大价值。每个物品只能选一次，所以容量要倒序遍历：
+              <code>dp[j] = max(dp[j], dp[j - w[i]] + v[i])</code>。完全背包中物品可以重复选择，容量改为正序遍历。
+            </p>
+            <pre><code>for each item i:
+  for j from capacity down to weight[i]:
+    dp[j] = max(dp[j], dp[j - weight[i]] + value[i])</code></pre>
+          </article>
+
+          <article class="essay-card">
+            <div class="essay-head">
+              <p class="post-meta">2026-04-14 · 双指针</p>
+              <span>02</span>
+            </div>
+            <h3><a href="posts/trapping-rain-water.html">接雨水：为什么双指针能做到 O(n)</a></h3>
+            <p>
+              对每个位置，能接的水由左右两侧最高柱子的较小值决定。双指针维护 <code>leftMax</code> 和 <code>rightMax</code>，每次移动较低的一侧，因为这一侧的上界已经确定，可以立即计算当前位置的积水。
+            </p>
+            <pre><code>while left &lt; right:
+  if height[left] &lt; height[right]:
+    update leftMax and answer
+    left += 1
+  else:
+    update rightMax and answer
+    right -= 1</code></pre>
+          </article>
+
+          <article class="essay-card">
+            <div class="essay-head">
+              <p class="post-meta">2026-05-11 · 状压 DP</p>
+              <span>03</span>
+            </div>
+            <h3><a href="posts/tsp-dp.html">旅行商问题 TSP：状态压缩动态规划入门</a></h3>
+            <p>
+              TSP 要求从起点出发访问所有城市并回到起点。经典做法是用二进制集合表示已访问城市：
+              <code>dp[mask][i]</code> 表示访问集合为 <code>mask</code> 且最后停在城市 <code>i</code> 的最短路径。枚举下一座未访问城市转移。
+            </p>
+            <pre><code>dp[1 &lt;&lt; start][start] = 0
+for mask in all states:
+  for i in cities:
+    for j not in mask:
+      dp[mask | (1 &lt;&lt; j)][j] =
+        min(dp[mask | (1 &lt;&lt; j)][j], dp[mask][i] + dist[i][j])</code></pre>
+          </article>
+
+          <article class="essay-card">
+            <div class="essay-head">
+              <p class="post-meta">2026-05-08 · 图论</p>
+              <span>04</span>
+            </div>
+            <h3><a href="posts/dijkstra.html">Dijkstra：单源最短路的优先队列写法</a></h3>
+            <p>
+              当边权非负时，Dijkstra 每次取出当前距离最小的点，并尝试松弛它的邻边。使用优先队列后复杂度通常为 <code>O((n + m) log n)</code>，适合稀疏图。
+            </p>
+            <pre><code>dist[start] = 0
+push (0, start)
+while heap is not empty:
+  d, u = pop min
+  if d &gt; dist[u]: continue
+  relax all edges from u</code></pre>
+          </article>
+
+          <article class="essay-card">
+            <div class="essay-head">
+              <p class="post-meta">2026-05-06 · 动态规划</p>
+              <span>05</span>
+            </div>
+            <h3><a href="posts/lcs.html">最长公共子序列 LCS：二维 DP 的边界意识</a></h3>
+            <p>
+              LCS 的状态 <code>dp[i][j]</code> 表示字符串 A 前 <code>i</code> 个字符与字符串 B 前 <code>j</code> 个字符的最长公共子序列长度。字符相等时来自左上角加一，否则取上方和左方最大值。
+            </p>
+            <pre><code>if a[i - 1] == b[j - 1]:
+  dp[i][j] = dp[i - 1][j - 1] + 1
+else:
+  dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])</code></pre>
+          </article>
+
+          <article class="essay-card">
+            <div class="essay-head">
+              <p class="post-meta">2026-05-03 · 经验贴</p>
+              <span>06</span>
+            </div>
+            <h3><a href="posts/algorithm-note-method.html">保研复习中如何整理算法题笔记</a></h3>
+            <p>
+              一篇题解最好包含四部分：问题抽象、状态或数据结构设计、复杂度分析、容易错的边界。不要只贴代码，重点写清楚为什么这个转移或贪心选择成立。
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section id="research" class="section-block">
         <div class="section-title">
           <p class="eyebrow">Research</p>
@@ -139,18 +246,32 @@
       <section id="projects" class="section-block">
         <div class="section-title">
           <p class="eyebrow">Projects</p>
-          <h2>代表项目</h2>
+          <h2>项目经历</h2>
         </div>
         <div class="project-list">
           <article>
-            <span>Research System</span>
-            <h3>医学影像辅助分析平台</h3>
-            <p>支持图像上传、模型推理、结果可视化和实验记录管理。</p>
+            <span>2025.07 - 2026.01 · AI 气象预测</span>
+            <h3>全球-区域嵌套图神经网络高分辨率天气预报</h3>
+            <p>针对区域嵌套预报中的边界不连续与误差累积问题，构建全球-区域嵌套 GNN，设计多尺度异构图、跨尺度注意力融合与边界一致性损失机制，提升高分辨率滚动预测稳定性。</p>
+            <p>第一作者，负责数据处理、模型设计、训练实验、结果分析及论文撰写，论文投稿至 IEEE GRSL。</p>
           </article>
           <article>
-            <span>Competition</span>
-            <h3>数学建模竞赛数据分析方案</h3>
-            <p>负责建模、特征工程和结果解释，形成论文与可复现实验代码。</p>
+            <span>2026.02 - 2026.04 · 计算机体系结构</span>
+            <h3>基于 SystemVerilog 的七级流水 RV32I 处理器</h3>
+            <p>基于 SystemVerilog 设计七级流水 RV32I 处理器，实现旁路转发、流水暂停、分支冲刷、MEM2 访存等待及精确提交接口，完成 Vivado 集成与仿真验证。</p>
+            <p>负责处理器核心架构设计、流水线控制与冒险处理实现，完成测试脚本搭建和结果分析，最终通过 RV32I 官方指令测试 42/42 项。</p>
+          </article>
+          <article>
+            <span>2025.09 - 2025.11 · AI 与气象大数据</span>
+            <h3>基于非自回归 Transformer 的多源气象预报订正模型</h3>
+            <p>面向多源数值天气预报与雷达实测风场存在系统偏差、时间分辨率不一致的问题，构建非自回归 Transformer 订正模型，融合历史观测、未来预报和时间特征。</p>
+            <p>负责数据预处理、特征构建、模型训练、推理评估流程实现，并完成结果可视化分析。</p>
+          </article>
+          <article>
+            <span>2025.08 - 2025.10 · 计算机网络</span>
+            <h3>TCP 协议栈仿真与可靠传输机制实现</h3>
+            <p>基于 Java UDP Socket 实现 RDT、GBN、SR、TCP Tahoe/Reno 等协议，通过滑动窗口、ACK、超时重传、快速重传和拥塞控制提升不可靠信道下的传输可靠性。</p>
+            <p>负责发送端/接收端状态维护、ACK 处理、乱序缓存、拥塞窗口调整及日志可视化，完成多阶段协议调试与结果分析。</p>
           </article>
         </div>
       </section>
@@ -161,20 +282,20 @@
           <h2>关于我</h2>
         </div>
         <p>
-          我是XX大学XX学院计算机科学与技术专业本科生，前三年综合成绩排名专业前1%。本科阶段系统学习了数据结构、算法设计、机器学习、深度学习和计算机视觉等课程，并在导师指导下参与科研项目。
+          我是计算机学院计算机科学与技术专业本科生，前三年综合成绩排名专业前3%。本科阶段系统学习了数据结构、算法设计、机器学习、深度学习等内容，并在导师指导下参与科研项目。
         </p>
         <div class="honors">
-          <span>国家奖学金</span>
-          <span>数学建模省级一等奖</span>
-          <span>计算机设计大赛国家二等奖</span>
-          <span>校级一等奖学金</span>
+          <!-- <span>国家奖学金</span> -->
+          <span>美国大学生数学建模比赛M奖</span>
+          <!-- <span>计算机设计大赛国家二等奖</span> -->
+          <span>连续获得校级一等奖学金</span>
         </div>
       </section>
     </section>
   </main>
 
   <footer class="footer">
-    <span>© 2026 张三</span>
+    <span>© 2026 水汽</span>
     <span>Built with GitHub Pages</span>
   </footer>
 

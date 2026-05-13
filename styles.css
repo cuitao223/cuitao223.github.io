@@ -176,6 +176,8 @@ h3 {
 .bio,
 .post-card p,
 .featured-post p,
+.section-note,
+.essay-card p,
 .timeline p,
 .project-list p,
 .about-block p,
@@ -357,6 +359,143 @@ h3 {
   font-weight: 800;
 }
 
+.section-note {
+  max-width: 680px;
+  margin-bottom: 0;
+}
+
+.essay-list {
+  display: grid;
+  gap: 16px;
+}
+
+.essay-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-soft);
+}
+
+.essay-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.essay-head span {
+  color: rgba(15, 118, 110, 0.25);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.essay-card code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: rgba(30, 36, 34, 0.08);
+  font-family: Consolas, "Liberation Mono", monospace;
+  font-size: 0.92em;
+}
+
+.essay-card pre {
+  overflow-x: auto;
+  margin: 14px 0 0;
+  padding: 14px;
+  border: 1px solid rgba(30, 36, 34, 0.1);
+  border-radius: 8px;
+  background: #1f2725;
+  color: #f7fbf8;
+  line-height: 1.55;
+}
+
+.essay-card pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.essay-card h3 a:hover {
+  color: var(--accent-dark);
+}
+
+.article-shell {
+  width: min(860px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 42px 0 72px;
+}
+
+.article-page {
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.article-page header {
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 30px;
+}
+
+.article-page h1 {
+  margin-bottom: 14px;
+  font-size: clamp(34px, 6vw, 54px);
+}
+
+.article-page h2 {
+  margin-top: 34px;
+  font-size: 25px;
+}
+
+.article-page p,
+.article-page li {
+  color: #3c4945;
+  font-size: 17px;
+}
+
+.article-page ul,
+.article-page ol {
+  padding-left: 22px;
+}
+
+.article-page code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: rgba(30, 36, 34, 0.08);
+  font-family: Consolas, "Liberation Mono", monospace;
+}
+
+.article-page pre {
+  overflow-x: auto;
+  padding: 18px;
+  border-radius: 8px;
+  background: #1f2725;
+  color: #f7fbf8;
+  line-height: 1.55;
+}
+
+.article-page pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.article-back {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.reflection {
+  padding: 18px;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  background: var(--paper-soft);
+}
+
 .timeline {
   display: grid;
   gap: 16px;
@@ -386,6 +525,10 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--paper-soft);
+}
+
+.project-list article p:last-child {
+  margin-bottom: 0;
 }
 
 .footer {
