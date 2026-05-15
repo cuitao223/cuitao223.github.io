@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最长公共子序列 LCS：二维 DP 的边界意识 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#essays">返回文章列表</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">2026-05-06 · 动态规划</p>
+        <h1>最长公共子序列 LCS：二维 DP 的边界意识</h1>
+        <p>LCS 是练习二维 DP 定义和初始化的基础题。</p>
+      </header>
+
+      <h2>状态定义</h2>
+      <p><code>dp[i][j]</code> 表示字符串 <code>a</code> 的前 <code>i</code> 个字符和字符串 <code>b</code> 的前 <code>j</code> 个字符的最长公共子序列长度。</p>
+
+      <h2>状态转移</h2>
+      <p>如果末尾字符相同，说明这个字符可以接在前一个公共子序列后面；否则只能从去掉其中一个末尾字符的两个状态中取最大值。</p>
+      <pre><code>for i in range(1, len(a) + 1):
+    for j in range(1, len(b) + 1):
+        if a[i - 1] == b[j - 1]:
+            dp[i][j] = dp[i - 1][j - 1] + 1
+        else:
+            dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])</code></pre>
+
+      <h2>边界处理</h2>
+      <p>把 <code>dp</code> 开成 <code>(len(a) + 1) * (len(b) + 1)</code>，第 0 行和第 0 列表示空字符串，可以自然处理边界。</p>
+
+      <h2>学习心得</h2>
+      <div class="reflection">
+        <p>LCS 让我意识到 DP 状态不要急着从下标 0 开始硬凑。多开一行一列虽然看起来浪费空间，但能让转移表达更清楚，代码也更不容易错。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

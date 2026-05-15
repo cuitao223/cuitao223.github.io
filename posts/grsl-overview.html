@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global-to-Regional Nested GNN 论文概览 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#research">返回科研笔记</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">论文笔记 · 2026-02-06 · GNN Weather Forecasting</p>
+        <h1>Global-to-Regional Nested GNN：论文整体思路</h1>
+        <p>基于论文《A Global-to-Regional Nested Graph Neural Network for High-Resolution Weather Forecasting》整理。</p>
+      </header>
+
+      <h2>研究问题</h2>
+      <p>GraphCast 等基于图神经网络的全球天气预报模型已经在中期全球预报中表现出很强能力，但直接用于局地区域高分辨率预报时仍然存在问题：区域边界容易不连续，局地模型容易丢失大尺度背景环流信息，滚动预报时误差会从边界向内部传播。</p>
+
+      <h2>核心方案</h2>
+      <p>论文提出 Global-to-Regional Nested Graph Neural Network。整体思路是冻结 1° Global Model，将它作为外部强迫；同时在南海及周边区域构建 0.25° Regional Model，通过区域嵌套滚动推理实现高分辨率预报。</p>
+
+      <h2>主要贡献</h2>
+      <ul>
+        <li>构建面向南海区域的高分辨率 AI 嵌套预报方法，使用全球模型驱动区域模型。</li>
+        <li>设计 Boundary Consistency Loss，在 buffer zone 中约束区域预测和全球边界场的一致性。</li>
+        <li>引入 Cross-Scale Attention Fusion，在区域编码阶段融合区域状态和全球边界信息。</li>
+        <li>形成包括 ERA5 数据处理、多分辨率对齐、区域训练、滚动推理和评估在内的完整流程。</li>
+      </ul>
+
+      <h2>我的理解</h2>
+      <div class="reflection">
+        <p>这篇工作的关键不是简单把全球模型输出插值到局地区域，而是把“全球约束”和“区域细化”放进同一个推理链条中。区域模型既需要高分辨率表达局地结构，又不能脱离全球场提供的大尺度动力背景。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

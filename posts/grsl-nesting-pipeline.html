@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嵌套预报流程：从 1° 到 0.25° | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#research">返回科研笔记</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">论文笔记 · 2026-02-06 · Nested Forecasting</p>
+        <h1>从 1° GraphCast 到 0.25° 区域模型：嵌套预报流程</h1>
+        <p>这篇笔记整理论文中的区域嵌套系统流程。</p>
+      </header>
+
+      <h2>区域设置</h2>
+      <p>论文以南海及周边区域为目标，区域核心范围为约 <code>3°-25°N, 100°-125°E</code>，并设置 5° buffer zone 作为 sponge layer。Global Model 工作在 1° 全球网格，Regional Model 工作在 0.25° 区域网格。</p>
+
+      <h2>推理流程</h2>
+      <ol>
+        <li>Global Model 以 6 小时步长进行滚动预报。</li>
+        <li>将全球输出裁剪到区域范围，并插值到 0.25° 区域网格。</li>
+        <li>生成区域边界 forcing fields，供 Regional Model 使用。</li>
+        <li>Regional Model 使用历史区域状态、静态信息和边界场预测下一步区域场。</li>
+        <li>滚动更新时，内部区域使用模型预测，边界区域使用外部边界场替换或约束。</li>
+      </ol>
+
+      <h2>为什么要这样设计</h2>
+      <p>如果只做区域 fine-tuning，模型可能提高局地细节表达，但会破坏大尺度质量场和低层动力场的平衡。嵌套流程把全球模型作为稳定背景，把区域模型作为局地细化器，目标是在两者之间取得平衡。</p>
+
+      <h2>我的理解</h2>
+      <div class="reflection">
+        <p>这个流程像是把传统数值天气预报中的 limited-area nesting 思路迁移到 AI 预报中。难点不只是分辨率提升，而是如何让区域预测在滚动过程中始终和外部大尺度场保持协调。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>概率论知识点：事件、随机变量、分布、数字特征与极限定理 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#course-notes">返回课程总结</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">课程总结 · 概率论</p>
+        <h1>概率论知识点：事件、随机变量、分布、数字特征与极限定理</h1>
+        <p>概率论复习按“事件概率 → 随机变量 → 分布 → 数字特征 → 极限定理”的顺序整理。</p>
+      </header>
+
+      <h2>一、随机事件与概率</h2>
+      <ul>
+        <li>事件关系：包含、相等、互斥、对立、完备事件组。</li>
+        <li>概率性质：非负性、规范性、可列可加性；加法公式用于处理并事件。</li>
+        <li>古典概型：关键是样本点等可能，常结合排列组合计算。</li>
+        <li>几何概型：概率等于区域测度之比，注意长度、面积或体积的选择。</li>
+      </ul>
+
+      <h2>二、条件概率、全概率与贝叶斯公式</h2>
+      <ul>
+        <li>条件概率：<code>P(A|B)=P(AB)/P(B)</code>，要明确条件事件改变了样本空间。</li>
+        <li>乘法公式：<code>P(AB)=P(A)P(B|A)</code>，适合连续发生事件。</li>
+        <li>全概率公式：把复杂事件按完备事件组拆分。</li>
+        <li>贝叶斯公式：用于由结果反推原因，常见于诊断、分类和后验概率计算。</li>
+        <li>独立性：<code>P(AB)=P(A)P(B)</code>；互斥和独立不是一回事。</li>
+      </ul>
+
+      <h2>三、随机变量及其分布</h2>
+      <ul>
+        <li>分布函数：<code>F(x)=P(X&lt;=x)</code>，单调不减、右连续，取值从 0 到 1。</li>
+        <li>离散型随机变量：用概率质量函数描述，概率求和为 1。</li>
+        <li>连续型随机变量：用概率密度函数描述，单点概率为 0，区间概率由积分得到。</li>
+        <li>随机变量函数分布：离散型可逐点合并概率，连续型常用分布函数法或变量变换法。</li>
+      </ul>
+
+      <h2>四、常见分布</h2>
+      <ul>
+        <li>0-1 分布：一次伯努利试验。</li>
+        <li>二项分布：<code>n</code> 次独立重复试验中成功次数。</li>
+        <li>泊松分布：稀有事件计数，常作为二项分布在特定条件下的近似。</li>
+        <li>均匀分布：区间内等可能。</li>
+        <li>指数分布：常用于等待时间，具有无记忆性。</li>
+        <li>正态分布：最重要的连续分布，标准化后转为标准正态。</li>
+      </ul>
+
+      <h2>五、数字特征</h2>
+      <ul>
+        <li>期望：描述平均水平，注意离散求和、连续积分。</li>
+        <li>方差：<code>D(X)=E(X^2)-[E(X)]^2</code>，描述波动程度。</li>
+        <li>协方差：描述两个随机变量线性相关方向。</li>
+        <li>相关系数：协方差的标准化形式，取值在 <code>[-1,1]</code>。</li>
+        <li>独立与不相关：独立可推出不相关，但不相关一般不能推出独立。</li>
+      </ul>
+
+      <h2>六、大数定律与中心极限定理</h2>
+      <ul>
+        <li>大数定律：样本均值在样本量增大时趋近总体期望。</li>
+        <li>中心极限定理：大量独立随机变量之和经标准化后近似服从正态分布。</li>
+        <li>应用场景：用正态分布近似二项分布、估计样本均值波动范围。</li>
+      </ul>
+
+      <h2>复习心得</h2>
+      <div class="reflection">
+        <p>概率论题目首先要定义清楚随机变量，再判断它属于离散型还是连续型。很多错误来自把条件概率、独立性和互斥关系混在一起。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

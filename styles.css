@@ -178,6 +178,7 @@ h3 {
 .featured-post p,
 .section-note,
 .essay-card p,
+.course-card p,
 .timeline p,
 .project-list p,
 .about-block p,
@@ -349,6 +350,7 @@ h3 {
 }
 
 .post-card li,
+.course-card li,
 .honors span {
   padding: 6px 10px;
   border: 1px solid rgba(15, 118, 110, 0.18);
@@ -357,6 +359,31 @@ h3 {
   color: var(--accent-dark);
   font-size: 13px;
   font-weight: 800;
+}
+
+.course-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.course-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-soft);
+}
+
+.course-card h3 a:hover {
+  color: var(--accent-dark);
+}
+
+.course-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
 }
 
 .section-note {

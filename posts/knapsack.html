@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>背包问题：从 0-1 背包到完全背包 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#essays">返回文章列表</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">2026-05-13 · 动态规划</p>
+        <h1>背包问题：从 0-1 背包到完全背包</h1>
+        <p>背包问题是动态规划入门中最适合训练“状态定义”和“遍历顺序”的题型。</p>
+      </header>
+
+      <h2>问题抽象</h2>
+      <p>给定容量为 <code>capacity</code> 的背包，以及若干物品，每个物品有重量 <code>weight[i]</code> 和价值 <code>value[i]</code>。目标是在不超过容量的前提下，使总价值最大。</p>
+
+      <h2>0-1 背包</h2>
+      <p>每个物品最多只能选一次。用一维数组 <code>dp[j]</code> 表示容量为 <code>j</code> 时能获得的最大价值。由于每个物品不能重复使用，容量必须倒序遍历。</p>
+      <pre><code>for i in range(n):
+    for j in range(capacity, weight[i] - 1, -1):
+        dp[j] = max(dp[j], dp[j - weight[i]] + value[i])</code></pre>
+
+      <h2>完全背包</h2>
+      <p>如果每个物品可以选无限次，容量要正序遍历。正序意味着当前物品更新后的状态可以继续被当前物品使用。</p>
+      <pre><code>for i in range(n):
+    for j in range(weight[i], capacity + 1):
+        dp[j] = max(dp[j], dp[j - weight[i]] + value[i])</code></pre>
+
+      <h2>复杂度</h2>
+      <p>时间复杂度为 <code>O(n * capacity)</code>，空间复杂度通过一维滚动数组压缩到 <code>O(capacity)</code>。</p>
+
+      <h2>学习心得</h2>
+      <div class="reflection">
+        <p>这类题最容易错的不是转移方程，而是遍历方向。我的理解是：倒序是在“隔离上一轮状态”，正序是在“允许当前物品重复贡献”。之后整理 DP 题时，我会优先写清楚状态含义、选择限制和遍历顺序，而不是直接背模板。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

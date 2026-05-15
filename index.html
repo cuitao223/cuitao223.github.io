@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="保研申请个人博客主页，展示学习记录、科研笔记、项目经历与简历材料。">
-  <title>水汽的个人博客 | 保研申请主页</title>
+  <meta name="description" content="个人博客主页，展示学习记录、科研笔记、项目经历与简历材料。">
+  <title>水汽的个人博客 </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -13,12 +13,13 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#top">
-      <span class="brand-mark">ZS</span>
+      <span class="brand-mark">SQ</span>
       <span>水汽的博客</span>
     </a>
     <nav class="nav" aria-label="主导航">
       <a href="#posts">文章</a>
       <a href="#essays">经验贴</a>
+      <a href="#course-notes">课程</a>
       <a href="#research">科研</a>
       <a href="#projects">项目</a>
       <a href="#about">关于</a>
@@ -32,26 +33,26 @@
         <div class="avatar">水</div>
         <h1>水汽</h1>
         <p class="role">2023级 · 计算机科学与技术本科生</p>
-        <p class="bio">记录科研阅读、项目复盘和保研准备。研究兴趣包括机器学习、计算机视觉、多模态学习与可信人工智能。</p>
+        <p class="bio">记录科研阅读、项目复盘和保研准备。研究兴趣包括机器学习、AI4S、计算机视觉与大模型。</p>
         <div class="quick-stats">
           <span><strong>GPA</strong>3.80/4.00</span>
           <span><strong>排名</strong>3/93</span>
           <span><strong>英语</strong>CET-6 542</span>
         </div>
         <div class="profile-actions">
-          <a href="mailto:zhangsan@example.com">Email</a>
-          <a href="https://github.com/cuitao">GitHub</a>
+          <a href="mailto:cuitao@stu.ouc.edu.cn">Email</a>
+          <a href="https://github.com/cuitao223">GitHub</a>
           <a href="resume.pdf">Resume</a>
         </div>
       </section>
 
       <section class="side-section">
         <h2>分类</h2>
-        <a href="#research">科研笔记 <span>6</span></a>
+        <a href="#research">科研笔记 <span>4</span></a>
         <a href="#essays">经验随笔 <span>6</span></a>
         <a href="#projects">项目复盘 <span>4</span></a>
-        <a href="#posts">课程总结 <span>5</span></a>
-        <a href="#about">保研材料 <span>3</span></a>
+        <a href="#course-notes">课程总结 <span>4</span></a>
+        <!-- <a href="#about">保研材料 <span>3</span></a> -->
       </section>
 
       <section class="side-section">
@@ -67,7 +68,7 @@
           <p class="eyebrow">Undergraduate Research Blog</p>
           <h2>把科研、项目和成长记录成一条清晰的线索。</h2>
           <p>
-            这里用于展示我的保研申请材料，也会持续沉淀论文阅读、实验记录、项目总结和学习笔记。老师可以快速浏览我的研究兴趣、代表项目和联系方式。
+            这里用于展示我的个人材料，也会持续沉淀论文阅读、实验记录、项目总结和学习笔记。
           </p>
         </div>
       </section>
@@ -79,42 +80,42 @@
         </div>
         <article class="featured-post">
           <div>
-            <p class="post-meta">科研笔记 · 2026-05-01</p>
-            <h3>我的本科科研主线：从视觉模型到多模态医学影像分析</h3>
-            <p>梳理本科阶段参与的两个主要科研项目，包括研究问题、方法改进、实验设计、阶段性结果与后续计划。</p>
+            <p class="post-meta">论文笔记 · 2026-02-06</p>
+            <h3>Global-to-Regional Nested GNN：面向南海高分辨率天气预报的区域嵌套框架</h3>
+            <p>基于论文《A Global-to-Regional Nested Graph Neural Network for High-Resolution Weather Forecasting》，梳理研究动机、系统流程、BCL 与 CSAF 两个核心模块。</p>
           </div>
-          <a href="#">阅读全文</a>
+          <a href="posts/grsl-overview.html">阅读全文</a>
         </article>
       </section>
 
       <section class="post-list" aria-label="文章列表">
         <article class="post-card">
-          <p class="post-meta">论文阅读 · 2026-04-18</p>
-          <h3>Cross-Attention 在多模态任务中的作用</h3>
-          <p>总结跨模态注意力的基本思想、常见结构和在医学影像分类中的可能用法。</p>
+          <p class="post-meta">论文笔记 · 2026-02-06</p>
+          <h3><a href="posts/grsl-nesting-pipeline.html">从 1° GraphCast 到 0.25° 区域模型：嵌套预报流程</a></h3>
+          <p>记录全球模型作为外部强迫、区域网格构建、边界场生成和 6 小时滚动推理的完整流程。</p>
           <ul>
-            <li>Multimodal Learning</li>
-            <li>Transformer</li>
+            <li>GraphCast</li>
+            <li>Nested Forecasting</li>
           </ul>
         </article>
 
         <article class="post-card">
-          <p class="post-meta">项目复盘 · 2026-03-26</p>
-          <h3>轻量化视觉模型部署实验记录</h3>
-          <p>记录剪枝、量化、ONNX 导出和端侧推理加速过程中的关键问题与解决方式。</p>
+          <p class="post-meta">论文笔记 · 2026-02-06</p>
+          <h3><a href="posts/grsl-bcl-csaf.html">BCL 与 CSAF：边界一致性和跨尺度背景融合</a></h3>
+          <p>整理 Boundary Consistency Loss 如何抑制边界误差传播，以及 Cross-Scale Attention Fusion 如何引入大尺度背景信息。</p>
           <ul>
-            <li>PyTorch</li>
-            <li>Edge AI</li>
+            <li>BCL</li>
+            <li>CSAF</li>
           </ul>
         </article>
 
         <article class="post-card">
-          <p class="post-meta">保研准备 · 2026-03-12</p>
-          <h3>如何整理一份老师容易阅读的科研简历</h3>
-          <p>从项目描述、贡献表达、成果排序和材料链接几个角度整理自己的申请材料。</p>
+          <p class="post-meta">论文笔记 · 2026-02-06</p>
+          <h3><a href="posts/grsl-experiments.html">实验设计与消融结果：为什么最终采用 BCL + CSAF</a></h3>
+          <p>总结 E1 基线对比、E2 消融实验、RMSE/ACC 指标，以及论文中对 MSLP、低层风场和三维结构的分析结论。</p>
           <ul>
-            <li>Resume</li>
-            <li>Application</li>
+            <li>RMSE</li>
+            <li>ACC</li>
           </ul>
         </article>
       </section>
@@ -216,7 +217,7 @@ else:
               <p class="post-meta">2026-05-03 · 经验贴</p>
               <span>06</span>
             </div>
-            <h3><a href="posts/algorithm-note-method.html">保研复习中如何整理算法题笔记</a></h3>
+            <h3><a href="posts/algorithm-note-method.html">如何整理算法题笔记</a></h3>
             <p>
               一篇题解最好包含四部分：问题抽象、状态或数据结构设计、复杂度分析、容易错的边界。不要只贴代码，重点写清楚为什么这个转移或贪心选择成立。
             </p>
@@ -224,21 +225,83 @@ else:
         </div>
       </section>
 
+      <section id="course-notes" class="section-block">
+        <div class="section-title">
+          <p class="eyebrow">Course Review</p>
+          <h2>课程复习总结</h2>
+          <p class="section-note">这里整理 408、线性代数、概率论和机器学习的复习框架，重点记录具体知识点、易错点和面试前可快速回顾的内容。</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <p class="post-meta">课程总结 · 408</p>
+            <h3><a href="posts/course-408.html">408 复习总结：数据结构、组成原理、操作系统、计算机网络</a></h3>
+            <p>按四门课分别整理核心知识点：树与图、Cache 与流水线、进程同步与虚拟内存、TCP 可靠传输与拥塞控制。</p>
+            <ul>
+              <li>数据结构</li>
+              <li>组成原理</li>
+              <li>操作系统</li>
+              <li>计算机网络</li>
+            </ul>
+          </article>
+          <article class="course-card">
+            <p class="post-meta">课程总结 · 线性代数</p>
+            <h3><a href="posts/course-linear-algebra.html">线性代数知识点：行列式、矩阵、向量组、特征值与二次型</a></h3>
+            <p>按考试知识点整理行列式、矩阵运算、线性方程组、向量空间、相似对角化和正定二次型。</p>
+            <ul>
+              <li>矩阵秩</li>
+              <li>特征值</li>
+              <li>二次型</li>
+            </ul>
+          </article>
+          <article class="course-card">
+            <p class="post-meta">课程总结 · 概率论</p>
+            <h3><a href="posts/course-probability.html">概率论知识点：事件、随机变量、分布、数字特征与极限定理</a></h3>
+            <p>按知识点整理条件概率、全概率公式、贝叶斯公式、常见分布、期望方差、协方差和中心极限定理。</p>
+            <ul>
+              <li>随机变量</li>
+              <li>常见分布</li>
+              <li>极限定理</li>
+            </ul>
+          </article>
+          <article class="course-card">
+            <p class="post-meta">课程总结 · 机器学习</p>
+            <h3><a href="posts/course-machine-learning.html">机器学习知识点：西瓜书主线复习</a></h3>
+            <p>围绕西瓜书常见主线整理模型评估、线性模型、决策树、神经网络、支持向量机、贝叶斯学习、集成学习和聚类。</p>
+            <ul>
+              <li>模型评估</li>
+              <li>决策树</li>
+              <li>SVM</li>
+              <li>集成学习</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section id="research" class="section-block">
         <div class="section-title">
           <p class="eyebrow">Research</p>
-          <h2>科研经历</h2>
+          <h2>科研笔记</h2>
         </div>
         <div class="timeline">
           <article>
-            <time>2025.03 - 至今</time>
-            <h3>基于多模态特征融合的医学影像分类研究</h3>
-            <p>负责数据预处理、模型结构改进与实验评估。通过引入跨模态注意力机制，提升小样本场景下的分类稳定性。</p>
+            <time>2026-02-06</time>
+            <h3><a href="posts/grsl-overview.html">论文整体思路：用全球模型驱动区域高分辨率 GNN</a></h3>
+            <p>论文针对区域滚动预报中边界不连续、局地细化不足和误差累积问题，提出冻结 1° Global Model 作为外部强迫，并在 0.25° 区域网格上训练 Regional Model。</p>
           </article>
           <article>
-            <time>2024.07 - 2025.01</time>
-            <h3>轻量化视觉模型在边缘设备上的部署优化</h3>
-            <p>作为国家级大创项目负责人，完成模型剪枝、量化和端侧推理实验，形成可复现实验报告。</p>
+            <time>2026-02-06</time>
+            <h3><a href="posts/grsl-nesting-pipeline.html">系统流程：多分辨率对齐、边界生成、区域训练与滚动推理</a></h3>
+            <p>模型流程包含 ERA5 预处理、1° 到 0.25° 的插值与裁剪、边界场预计算/在线生成、区域模型训练，以及 6 小时步长的嵌套滚动预测。</p>
+          </article>
+          <article>
+            <time>2026-02-06</time>
+            <h3><a href="posts/grsl-bcl-csaf.html">核心模块：BCL 约束边界，CSAF 融合大尺度背景</a></h3>
+            <p>BCL 在 5° buffer zone 中约束区域预测与全球边界场的一致性；CSAF 在区域编码器中显式建模区域特征和全球边界信息之间的交互。</p>
+          </article>
+          <article>
+            <time>2026-02-06</time>
+            <h3><a href="posts/grsl-experiments.html">实验结论：BCL 与 CSAF 互补，组合模型更稳定</a></h3>
+            <p>实验使用 RMSE 和 ACC 评估 6、12、24、36、48 小时预报。BCL 主要提升质量场长期稳定性，CSAF 改善低层风场和三维结构的跨尺度一致性。</p>
           </article>
         </div>
       </section>
@@ -286,9 +349,11 @@ else:
         </p>
         <div class="honors">
           <!-- <span>国家奖学金</span> -->
-          <span>美国大学生数学建模比赛M奖</span>
+          
           <!-- <span>计算机设计大赛国家二等奖</span> -->
           <span>连续获得校级一等奖学金</span>
+          <span>美国大学生数学建模比赛M奖</span>
+           <!-- <span>CCF CSP认证</span> -->
         </div>
       </section>
     </section>

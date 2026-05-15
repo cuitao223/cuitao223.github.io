@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>线性代数知识点：行列式、矩阵、向量组、特征值与二次型 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#course-notes">返回课程总结</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">课程总结 · 线性代数</p>
+        <h1>线性代数知识点：行列式、矩阵、向量组、特征值与二次型</h1>
+        <p>这篇笔记按知识点拆分线性代数，重点记录常考概念、计算方法和容易混淆的判断条件。</p>
+      </header>
+
+      <h2>一、行列式</h2>
+      <ul>
+        <li>定义与性质：互换两行变号，某行乘常数则行列式乘该常数，某行加另一行倍数行列式不变。</li>
+        <li>展开定理：按行或列展开，代数余子式符号为 <code>(-1)^(i+j)</code>。</li>
+        <li>常见计算：三角化、按零多的行列展开、利用范德蒙德行列式、分块矩阵行列式。</li>
+        <li>重要结论：<code>|AB| = |A||B|</code>，<code>|A^T| = |A|</code>，可逆矩阵行列式非零。</li>
+      </ul>
+
+      <h2>二、矩阵</h2>
+      <ul>
+        <li>基本运算：矩阵加法、数乘、乘法、转置、逆矩阵、伴随矩阵。</li>
+        <li>矩阵秩：行秩等于列秩；初等变换不改变秩；<code>r(A)</code> 反映矩阵中独立信息量。</li>
+        <li>逆矩阵判断：方阵可逆等价于行列式非零、满秩、齐次方程只有零解。</li>
+        <li>初等矩阵：左乘初等矩阵对应行变换，右乘初等矩阵对应列变换。</li>
+        <li>分块矩阵：适合处理高维矩阵乘法、逆矩阵和行列式计算。</li>
+      </ul>
+
+      <h2>三、线性方程组</h2>
+      <ul>
+        <li>齐次方程组：<code>Ax = 0</code>，非零解存在条件是 <code>r(A) &lt; n</code>。</li>
+        <li>非齐次方程组：<code>Ax = b</code>，有解条件是 <code>r(A) = r(A|b)</code>。</li>
+        <li>解的结构：非齐次通解 = 一个特解 + 对应齐次方程组通解。</li>
+        <li>基础解系：自由变量个数为 <code>n - r(A)</code>，也是解空间维数。</li>
+      </ul>
+
+      <h2>四、向量组与向量空间</h2>
+      <ul>
+        <li>线性相关与无关：一个向量能由其余向量线性表示，则向量组线性相关。</li>
+        <li>极大无关组：能代表原向量组张成空间的最小独立骨架。</li>
+        <li>等价向量组：可以相互线性表示，秩相同，张成空间相同。</li>
+        <li>基与维数：基是一组线性无关且能张成空间的向量，维数是基中向量个数。</li>
+      </ul>
+
+      <h2>五、特征值、特征向量与相似对角化</h2>
+      <ul>
+        <li>特征值定义：满足 <code>Ax = lambda x</code> 的非零向量 <code>x</code> 是特征向量。</li>
+        <li>求解步骤：先解 <code>|lambda I - A| = 0</code> 得特征值，再解 <code>(lambda I - A)x = 0</code> 得特征向量。</li>
+        <li>相似矩阵：<code>B = P^{-1}AP</code>，相似矩阵有相同特征值、行列式和迹。</li>
+        <li>可对角化条件：有 <code>n</code> 个线性无关特征向量；不同特征值对应特征向量线性无关。</li>
+        <li>实对称矩阵：一定可以正交对角化，不同特征值对应特征向量正交。</li>
+      </ul>
+
+      <h2>六、二次型</h2>
+      <ul>
+        <li>矩阵表示：二次型可写成 <code>x^T A x</code>，其中 <code>A</code> 通常取实对称矩阵。</li>
+        <li>标准形与规范形：通过合同变换化简，关注平方项系数。</li>
+        <li>正定判断：顺序主子式全为正，或特征值全为正。</li>
+        <li>惯性定理：正负惯性指数在合同变换下不变。</li>
+      </ul>
+
+      <h2>复习心得</h2>
+      <div class="reflection">
+        <p>线代复习要把“秩”作为核心线索。行列式、方程组、向量组、可逆性和特征值很多判断都能回到秩、线性无关和空间维数上。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实验设计与消融结果：BCL + CSAF 的作用 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#research">返回科研笔记</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">论文笔记 · 2026-02-06 · Experiments</p>
+        <h1>实验设计与消融结果：为什么最终采用 BCL + CSAF</h1>
+        <p>这篇笔记整理论文的评估设置、基线对比和消融实验结论。</p>
+      </header>
+
+      <h2>评估设置</h2>
+      <p>论文使用 ERA5 再分析数据训练与评估模型，训练平台为 PyTorch 2.1.0 和 Ascend 910B。评估区域为南海核心区域，预报时效包括 6、12、24、36、48 小时，指标为 RMSE 和 ACC。</p>
+
+      <h2>E1：区域模型与全球 GraphCast 对比</h2>
+      <p>0.25° 区域 fine-tuning 对自由大气中的热动力结构、水汽和垂直速度等变量有明显提升，说明局地高分辨率信息对南海区域预报是必要的。但仅靠区域训练并不天然稳定，MSLP 和部分低层风场可能出现退化。</p>
+
+      <h2>E2：BCL 与 CSAF 消融</h2>
+      <p>论文比较了 Baseline、+BCL、+CSAF 和 +BCL+CSAF 四组模型。结果显示，BCL 主要增强质量场变量的长期稳定性，CSAF 主要提升低层风场和三维结构的跨尺度一致性。最终组合模型在稳定性和区域结构表达之间取得更好的折中。</p>
+
+      <h2>结论整理</h2>
+      <ul>
+        <li>BCL 能缓解边界不连续和误差向内传播，尤其对 MSLP 长时效稳定性有帮助。</li>
+        <li>CSAF 能增强区域模型对大尺度背景的利用，改善低层风场和层平均温度等变量。</li>
+        <li>BCL 与 CSAF 具有互补性，组合模型更适合复杂低纬海洋区域的 AI 嵌套预报。</li>
+      </ul>
+
+      <h2>我的理解</h2>
+      <div class="reflection">
+        <p>这组实验说明，区域高分辨率本身不是全部答案。真正稳定的区域 AI 预报需要同时处理两个问题：边界连续性和跨尺度背景理解。BCL 和 CSAF 分别对应这两个关键点。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

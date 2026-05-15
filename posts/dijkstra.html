@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dijkstra：单源最短路的优先队列写法 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#essays">返回文章列表</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">2026-05-08 · 图论</p>
+        <h1>Dijkstra：单源最短路的优先队列写法</h1>
+        <p>Dijkstra 用于求非负边权图上的单源最短路径。</p>
+      </header>
+
+      <h2>算法思想</h2>
+      <p>维护起点到每个点的当前最短距离。每次从优先队列中取出距离最小的点，并用它去松弛相邻边。因为边权非负，被取出的最短距离不会再被更小路径推翻。</p>
+
+      <pre><code>import heapq
+
+dist = [float("inf")] * n
+dist[start] = 0
+heap = [(0, start)]
+
+while heap:
+    d, u = heapq.heappop(heap)
+    if d &gt; dist[u]:
+        continue
+    for v, w in graph[u]:
+        if dist[v] &gt; dist[u] + w:
+            dist[v] = dist[u] + w
+            heapq.heappush(heap, (dist[v], v))</code></pre>
+
+      <h2>注意点</h2>
+      <ul>
+        <li>不能处理负权边。</li>
+        <li>优先队列里可能存在旧状态，取出后需要判断 <code>d &gt; dist[u]</code>。</li>
+        <li>稀疏图中邻接表比邻接矩阵更合适。</li>
+      </ul>
+
+      <h2>学习心得</h2>
+      <div class="reflection">
+        <p>我以前容易把 Dijkstra 记成固定模板，但真正关键的是“每次确定一个当前最短点”。只要抓住非负边权这个前提，优先队列写法的正确性就更容易理解。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

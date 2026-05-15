@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>接雨水：为什么双指针能做到 O(n) | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#essays">返回文章列表</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">2026-05-12 · 双指针</p>
+        <h1>接雨水：为什么双指针能做到 O(n)</h1>
+        <p>接雨水的关键是判断每个位置左右两侧最高柱子的较小值。</p>
+      </header>
+
+      <h2>核心结论</h2>
+      <p>位置 <code>i</code> 能接的水量为 <code>min(leftMax[i], rightMax[i]) - height[i]</code>。如果逐个预处理左右最大值，可以用 <code>O(n)</code> 时间和 <code>O(n)</code> 空间完成。</p>
+
+      <h2>双指针优化</h2>
+      <p>双指针把空间压到 <code>O(1)</code>。当 <code>height[left] &lt; height[right]</code> 时，左侧位置的右边界至少不会比当前右柱子低，因此左侧能否接水只取决于 <code>leftMax</code>。</p>
+      <pre><code>left, right = 0, len(height) - 1
+leftMax = rightMax = 0
+ans = 0
+
+while left &lt; right:
+    if height[left] &lt; height[right]:
+        leftMax = max(leftMax, height[left])
+        ans += leftMax - height[left]
+        left += 1
+    else:
+        rightMax = max(rightMax, height[right])
+        ans += rightMax - height[right]
+        right -= 1</code></pre>
+
+      <h2>复杂度</h2>
+      <p>每个指针最多移动 <code>n</code> 次，时间复杂度 <code>O(n)</code>，额外空间复杂度 <code>O(1)</code>。</p>
+
+      <h2>学习心得</h2>
+      <div class="reflection">
+        <p>这道题让我意识到，双指针不是简单地“一左一右往中间走”，而是每一步都要有可以证明的决策依据。较低的一侧先结算，本质上是因为它的短板已经确定。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCL 与 CSAF：边界一致性和跨尺度融合 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#research">返回科研笔记</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">论文笔记 · 2026-02-06 · BCL / CSAF</p>
+        <h1>BCL 与 CSAF：边界一致性和跨尺度背景融合</h1>
+        <p>这篇笔记整理论文提出的两个关键机制。</p>
+      </header>
+
+      <h2>Boundary Consistency Loss</h2>
+      <p>BCL 的目标是缓解 Global Model 外部边界和 Regional Model 区域预测之间的不连续。论文将 buffer zone 作为边界 forcing layer，在训练时约束区域预测和插值后的全球边界场保持一致。</p>
+      <pre><code>L = L_pred + lambda * L_BCL</code></pre>
+      <p>这里 <code>L_pred</code> 是主要预测损失，<code>L_BCL</code> 在 buffer zone 内计算区域预测与全球边界场之间的差异。它的作用是减少边界跳变，抑制滚动预报中误差从边界向内部传播。</p>
+
+      <h2>Cross-Scale Attention Fusion</h2>
+      <p>CSAF 被加入到区域编码器中，用注意力机制显式建模区域特征和全球边界特征之间的交互。区域模型不只接收局地历史场，也通过 CSAF 利用 1° 全球模型提供的大尺度背景状态。</p>
+
+      <h2>二者的分工</h2>
+      <ul>
+        <li>BCL 更偏向稳定边界和质量场，尤其有助于抑制 MSLP 长时效误差放大。</li>
+        <li>CSAF 更偏向跨尺度信息融合，有助于低层风场和三维热动力结构的表达。</li>
+        <li>两者组合后，既保留区域高分辨率细节，又减少区域模型脱离全球背景的问题。</li>
+      </ul>
+
+      <h2>我的理解</h2>
+      <div class="reflection">
+        <p>BCL 是约束，CSAF 是信息通道。前者告诉区域模型“边界不要乱跳”，后者告诉区域模型“你需要理解外部大尺度背景”。这也是论文中二者互补的原因。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

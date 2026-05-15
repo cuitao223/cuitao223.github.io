@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旅行商问题 TSP：状态压缩动态规划入门 | 水汽的个人博客</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-shell">
+    <a class="article-back" href="../index.html#essays">返回文章列表</a>
+    <article class="article-page">
+      <header>
+        <p class="post-meta">草稿 · 计划 2026-05-10 · 状压 DP</p>
+        <h1>旅行商问题 TSP：状态压缩动态规划入门</h1>
+        <p>TSP 是理解状态压缩动态规划的经典例题。</p>
+      </header>
+
+      <h2>问题描述</h2>
+      <p>从起点出发，访问每座城市恰好一次，最后回到起点，要求总路程最短。暴力枚举排列的复杂度是阶乘级，城市数量稍大就不可接受。</p>
+
+      <h2>状态设计</h2>
+      <p>用二进制整数 <code>mask</code> 表示已经访问过的城市集合。<code>dp[mask][i]</code> 表示当前访问集合为 <code>mask</code>，最后停在城市 <code>i</code> 的最短距离。</p>
+
+      <pre><code>INF = 10 ** 18
+dp = [[INF] * n for _ in range(1 &lt;&lt; n)]
+dp[1][0] = 0
+
+for mask in range(1 &lt;&lt; n):
+    for i in range(n):
+        if dp[mask][i] == INF:
+            continue
+        for j in range(n):
+            if mask &amp; (1 &lt;&lt; j):
+                continue
+            nxt = mask | (1 &lt;&lt; j)
+            dp[nxt][j] = min(dp[nxt][j], dp[mask][i] + dist[i][j])
+
+ans = min(dp[(1 &lt;&lt; n) - 1][i] + dist[i][0] for i in range(n))</code></pre>
+
+      <h2>复杂度</h2>
+      <p>状态数是 <code>2^n * n</code>，转移还要枚举下一座城市，所以时间复杂度约为 <code>O(2^n * n^2)</code>，适用于城市数量较小的场景。</p>
+
+      <h2>学习心得</h2>
+      <div class="reflection">
+        <p>状态压缩最重要的是把“集合”变成一个可以枚举和转移的整数。TSP 让我更直观地理解了为什么有些指数级问题仍然可以通过 DP 在小规模输入下求出精确解。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
