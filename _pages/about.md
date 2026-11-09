@@ -8,7 +8,7 @@ excerpt: ""
 
 ## About Me
 
-I am **CuiTao**, a student and researcher at **Zhejiang University (ZJU)** in China.
+I am **CuiTao**, a student and researcher at **Zhejiang University (ZJU)** in China. My research direction is **coding agents**.
 
 This website is my academic portfolio, where I will share my research interests, publications, projects, talks, teaching, and other professional activities.
 
